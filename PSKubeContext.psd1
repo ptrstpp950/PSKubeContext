@@ -9,7 +9,7 @@
     # Version number of this module.
     ModuleVersion     = '0.0.0.1'
     # Script module or binary module file associated with this manifest.
-    RootModule        = 'PSKubeCtx.psm1'
+    RootModule        = 'PSKubeContext.psm1'
     # ID used to uniquely identify this module
     GUID              = 'e52b0a52-1f83-4036-8162-3868b374e201'
     # Company or vendor of this module
