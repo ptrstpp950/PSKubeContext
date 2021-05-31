@@ -1,7 +1,6 @@
 
 Function Select-KubeNamespace {
     [CmdletBinding()]
-    [Alias('kubens')]
     param (
         [parameter(Mandatory = $False, Position = 0, ValueFromRemainingArguments = $True)]
         [Object[]] $Arguments
@@ -38,7 +37,6 @@ Function Select-KubeNamespace {
 #kubectx
 Function Select-KubeContext {
     [CmdletBinding()]
-    [Alias('kubectx')]
     param (
         [parameter(Mandatory = $False, Position = 0, ValueFromRemainingArguments = $True)]
         [Object[]] $Arguments
@@ -68,8 +66,6 @@ Function Select-KubeContext {
     }
 }
 
-
-
 Function Register-PSKubeAutoComplete {
     param (
         [parameter(Mandatory = $False, Position = 0)]
@@ -79,7 +75,12 @@ Function Register-PSKubeAutoComplete {
     )
 
     if (!$DisableForKubeCtx) {
-        Register-ArgumentCompleter -Native -CommandName kubectx -ScriptBlock {
+        $rootCommands = @('Select-KubeContext');
+        $aliases = (get-alias).Where( { $_.Definition -in $rootCommands }).Name;
+        if ($aliases) {
+            $rootCommands += $aliases
+        }
+        Register-ArgumentCompleter -Native -CommandName $rootCommands -ScriptBlock {
             param($wordToComplete, $fullCommand, $cursorPosition)
             kubectl config get-contexts -o=name | ForEach-Object {
                 $ctx = $_;
@@ -96,7 +97,12 @@ Function Register-PSKubeAutoComplete {
     }
 
     if  (!$DisableForKubeNS) {
-        Register-ArgumentCompleter -Native -CommandName kubens -ScriptBlock {
+        $rootCommands = @('Select-KubeNamespace');
+        $aliases = (get-alias).Where( { $_.Definition -in $rootCommands }).Name;
+        if ($aliases) {
+            $rootCommands += $aliases
+        }
+        Register-ArgumentCompleter -Native -CommandName $rootCommands -ScriptBlock {
             param($wordToComplete, $fullCommand, $cursorPosition)
             kubectl get namespace -o=name | ForEach-Object {
                 $ns = $_ -replace '^namespace/'

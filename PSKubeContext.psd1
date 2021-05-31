@@ -7,7 +7,7 @@
 #
 @{
     # Version number of this module.
-    ModuleVersion     = '0.0.0.1'
+    ModuleVersion     = '0.0.2'
     # Script module or binary module file associated with this manifest.
     RootModule        = 'PSKubeContext.psm1'
     # ID used to uniquely identify this module
