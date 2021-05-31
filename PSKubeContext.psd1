@@ -7,7 +7,7 @@
 #
 @{
     # Version number of this module.
-    ModuleVersion     = '0.0.2'
+    ModuleVersion     = '0.0.3'
     # Script module or binary module file associated with this manifest.
     RootModule        = 'PSKubeContext.psm1'
     # ID used to uniquely identify this module
@@ -31,12 +31,12 @@
     # Aliases to export from this module
     AliasesToExport   = '*'
     # Functions to export from this module
-    FunctionsToExport = @('Select-KubeContext', 'Select-KubeNamespace', 'Register-PSKubeAutoComplete')
+    FunctionsToExport = @('Select-KubeContext', 'Select-KubeNamespace', 'Register-PSKubeContextComplete')
     # Private data to pass to the module specified in RootModule. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
     PrivateData       = @{
         PSData = @{
             # Tags applied to this module. These help with module discovery in online galleries.
-            Tags       = @('kubernetes', 'k8s', 'kubens', 'kubectx')
+            Tags       = @('kubernetes', 'k8s', 'kubens', 'kubectx', 'Select-KubeContext', 'Select-KubeNamespace')
             # A URL to the license for this module.
             #LicenseUri = ''
             # A URL to the main website for this project.

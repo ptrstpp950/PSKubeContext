@@ -66,7 +66,7 @@ Function Select-KubeContext {
     }
 }
 
-Function Register-PSKubeAutoComplete {
+Function Register-PSKubeContextComplete {
     param (
         [parameter(Mandatory = $False, Position = 0)]
         [switch] $DisableForKubeNS,
