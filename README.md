@@ -12,7 +12,7 @@ To utilize it, simply add the following to your profile:
 Import-Module PSKubeContext
 Set-Alias kubens -Value Select-KubeNamespace
 Set-Alias kubectx -Value Select-KubeContext
-Register-PSKubeAutoComplete
+Register-PSKubeContextComplete
 ```
 
 ## What's inside:
