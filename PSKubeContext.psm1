@@ -56,7 +56,7 @@ Function Select-KubeContext {
         }
         else {
             $allCtx = & kubectl config get-contexts -o=name
-            $ctx = Select-MenuOption -MenuOptions $allCtx;
+            $ctx = Select-MenuOption -MenuOptions $allCtx.Where({ $_ -ne '' });
         }
     }
     process {
